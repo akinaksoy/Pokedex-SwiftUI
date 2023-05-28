@@ -13,6 +13,7 @@ struct Constants {
     static var secondaryColor = "blue"
     static var textColor = "white"
     enum PokeType : String{
+        case all = "all"
         case poison = "poison"
         case fire = "fire"
         case water = "water"

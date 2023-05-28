@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pokedex: Codable {
+struct Pokedex: Codable,Identifiable {
     let attack, defense: Int
     let description: String
     let evolutionChain: [EvolutionChain]?
@@ -29,4 +29,3 @@ struct Pokedex: Codable {
 struct EvolutionChain: Codable {
     let id, name: String
 }
-

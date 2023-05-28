@@ -10,7 +10,7 @@ import Foundation
 class ApiService {
     
     class func ApiRequest(method: NetworkConstants.HTTPMethods,
-                          completion: @escaping ([Pokedex]?,RequestError.ErrorTypes?) -> Void) {
+                          completion: @escaping ([Pokedex?]?,RequestError.ErrorTypes?) -> Void) {
         let networkConstants = NetworkConstants()
         let baseURL = networkConstants.baseUrl
         guard let url = URL(string: "\(baseURL)") else {
@@ -26,7 +26,7 @@ class ApiService {
             guard let data = data else { return }
             DispatchQueue.main.async {
                 do {
-                    let pokeList = try JSONDecoder().decode([Pokedex].self, from: data)
+                    let pokeList = try JSONDecoder().decode([Pokedex?].self, from: data)
                     completion(pokeList, nil)
                 } catch {
                     completion(nil,.NetworkError)

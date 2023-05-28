@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 struct ContentView: View {
     @State private var selectedIndex : Int = 0
     @ObservedObject var viewModel = PokedexViewModel()
@@ -27,8 +27,11 @@ struct ContentView: View {
                         
                     }
                 }
-                
+                PokeCartView(viewModel: viewModel)
                 Spacer()
+            }
+            .onAppear {
+                viewModel.fetchAllPokemon()
             }
             
             
@@ -86,4 +89,36 @@ struct CategoryListView: View {
         }
     }
     
+}
+struct PokeCartView: View {
+    @ObservedObject var viewModel : PokedexViewModel
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                
+                ForEach(viewModel.pokemonShowList,id: \.id) { item in
+                    ZStack{
+                        Color(.blue)
+                        VStack {
+                        
+                            KFImage(URL(string: item.imageURL))
+                            .resizable()
+                            .frame(width: 80,height: 80)
+                        Text(item.name)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top)
+                            .fontWeight(.bold)
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                        }
+                        .padding()
+                    }
+                    .cornerRadius(24)
+                    
+                }
+            }
+            .padding()
+        }
+    }
 }
