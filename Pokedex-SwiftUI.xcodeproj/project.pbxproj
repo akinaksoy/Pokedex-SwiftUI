@@ -17,6 +17,9 @@
 		1FEE97082A23D0F800E862CE /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE97072A23D0F800E862CE /* NetworkConstants.swift */; };
 		1FEE970B2A23D31600E862CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE970A2A23D31600E862CE /* Constants.swift */; };
 		1FEE970E2A23E6B800E862CE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1FEE970D2A23E6B800E862CE /* Kingfisher */; };
+		1FEE97102A23FCD700E862CE /* PokeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE970F2A23FCD700E862CE /* PokeHeaderView.swift */; };
+		1FEE97132A23FCFC00E862CE /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE97122A23FCFC00E862CE /* CategoryListView.swift */; };
+		1FEE97152A23FD1B00E862CE /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE97142A23FD1B00E862CE /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		1FEE97042A23D0C900E862CE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1FEE97072A23D0F800E862CE /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		1FEE970A2A23D31600E862CE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1FEE970F2A23FCD700E862CE /* PokeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeHeaderView.swift; sourceTree = "<group>"; };
+		1FEE97122A23FCFC00E862CE /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		1FEE97142A23FD1B00E862CE /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,9 @@
 		1FEE96F92A23CC0D00E862CE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1FEE97142A23FD1B00E862CE /* CartView.swift */,
+				1FEE970F2A23FCD700E862CE /* PokeHeaderView.swift */,
+				1FEE97122A23FCFC00E862CE /* CategoryListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -224,8 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FEE97152A23FD1B00E862CE /* CartView.swift in Sources */,
 				1FEE97082A23D0F800E862CE /* NetworkConstants.swift in Sources */,
 				1FEE97032A23D0AC00E862CE /* Pokedex.swift in Sources */,
+				1FEE97102A23FCD700E862CE /* PokeHeaderView.swift in Sources */,
+				1FEE97132A23FCFC00E862CE /* CategoryListView.swift in Sources */,
 				1FEE97052A23D0C900E862CE /* APIService.swift in Sources */,
 				1FEE96EE2A23CBE700E862CE /* ContentView.swift in Sources */,
 				1FEE970B2A23D31600E862CE /* Constants.swift in Sources */,
