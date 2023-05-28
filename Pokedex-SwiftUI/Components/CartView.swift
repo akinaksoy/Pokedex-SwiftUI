@@ -15,23 +15,29 @@ struct PokeCartView: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                 
                 ForEach(viewModel.pokemonShowList,id: \.id) { item in
-                    ZStack{
-                        Color(Constants.secondaryColor)
-                        VStack {
-                        
-                            KFImage(URL(string: item.imageURL))
-                            .resizable()
-                            .frame(width: 80,height: 80)
-                            Text(item.name.capitalized)
-                            .frame(maxWidth: .infinity)
-                            .padding(.top)
-                            .fontWeight(.bold)
-                            .font(.system(size: 24))
-                            .foregroundColor(Color(Constants.textColor))
+                    NavigationLink {
+                        PokeDetailView(pokemon: item)
+                    } label: {
+                        ZStack{
+                            Color(Constants.secondaryColor)
+                            VStack {
+                            
+                                KFImage(URL(string: item.imageURL))
+                                .resizable()
+                                .frame(width: 80,height: 80)
+                                Text(item.name.capitalized)
+                                .frame(maxWidth: .infinity)
+                                .padding(.top)
+                                .fontWeight(.bold)
+                                .font(.system(size: 24))
+                                .foregroundColor(Color(Constants.textColor))
+                            }
+                            .padding()
                         }
-                        .padding()
+                        .cornerRadius(24)
                     }
-                    .cornerRadius(24)
+
+                    
                     
                 }
             }

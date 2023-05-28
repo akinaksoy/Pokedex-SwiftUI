@@ -10,34 +10,37 @@ struct ContentView: View {
     @State private var selectedIndex : Int = 0
     @ObservedObject var viewModel = PokedexViewModel()
     var body: some View {
-        ZStack {
-            Color(Constants.backgroundColor)
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                PokeHeaderView(backgroundColor: Constants.primaryColor)
-                ScrollView(.horizontal,showsIndicators: false) {
-                    HStack {
-                        ForEach(viewModel.categoriesList.indices) {index in
-                            
-                            CategoryListView(isActive: index == selectedIndex,category: viewModel.categoriesList[index],backgroundColor: Constants.secondaryColor).onTapGesture {
-                                selectedIndex = index
-                                viewModel.setPokeListFilter(pokeType: viewModel.categoriesList[index] )
+        
+        NavigationView{
+            ZStack {
+                Color(Constants.backgroundColor)
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    PokeHeaderView(backgroundColor: Constants.primaryColor)
+                    ScrollView(.horizontal,showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.categoriesList.indices) {index in
                                 
-                                
+                                CategoryListView(isActive: index == selectedIndex,category: viewModel.categoriesList[index],backgroundColor: Constants.secondaryColor).onTapGesture {
+                                    selectedIndex = index
+                                    viewModel.setPokeListFilter(pokeType: viewModel.categoriesList[index] )
+                                    
+                                    
+                                }
                             }
+                            
                         }
-                        
                     }
+                    PokeCartView(viewModel: viewModel)
+                    Spacer()
                 }
-                PokeCartView(viewModel: viewModel)
-                Spacer()
+                .onAppear {
+                    viewModel.fetchAllPokemon()
+                }
+                
+                
+                
             }
-            .onAppear {
-                viewModel.fetchAllPokemon()
-            }
-            
-            
-            
         }
         
     }
