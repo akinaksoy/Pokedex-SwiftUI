@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     static var primaryColor = "pokeRed"
     static var backgroundColor = "Black"
-    static var secondaryColor = "blue"
+    static var secondaryColor = "pokeRed"
     static var textColor = "white"
     enum PokeType : String{
         case all = "all"
@@ -43,22 +43,22 @@ struct Constants {
     static func generateColorDesign(pokeColor : PokeColor) {
         switch pokeColor {
         case .greenColors:
-            primaryColor = "Orange"
+            primaryColor = "SeaGreen"
             backgroundColor = "DarkGreen"
             secondaryColor = "LightGreen"
             textColor = "white"
         case .redColors:
-            primaryColor = "Orange"
+            primaryColor = "OrangeC"
             backgroundColor = "pokeRed"
             secondaryColor = "darkOrange"
             textColor = "white"
         case .blueColors:
-            primaryColor = "pokeRed"
+            primaryColor = "LightBlue"
             backgroundColor = "DarkBlue"
-            secondaryColor = "DarkGreen"
+            secondaryColor = "SeaGreen"
             textColor = "white"
         case .pinkColors:
-            primaryColor = "pokeRed"
+            primaryColor = "LightPink"
             backgroundColor = "Purple"
             secondaryColor = "Pink"
             textColor = "white"

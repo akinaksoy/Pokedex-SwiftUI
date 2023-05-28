@@ -12,16 +12,19 @@ struct ContentView: View {
     @ObservedObject var viewModel = PokedexViewModel()
     var body: some View {
         ZStack {
-            Color(.black)
+            Color(Constants.backgroundColor)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                PokeHeaderView()
+                PokeHeaderView(backgroundColor: Constants.primaryColor)
                 ScrollView(.horizontal,showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.categoriesList.indices) {index in
                             
-                            CategoryListView(isActive: index == selectedIndex,category: viewModel.categoriesList[index]).onTapGesture {
+                            CategoryListView(isActive: index == selectedIndex,category: viewModel.categoriesList[index],backgroundColor: Constants.secondaryColor).onTapGesture {
                                 selectedIndex = index
+                                viewModel.setPokeListFilter(pokeType: viewModel.categoriesList[index] )
+                                
+                                
                             }
                         }
                         
@@ -48,10 +51,11 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct PokeHeaderView: View {
+    var backgroundColor : String
     var body: some View {
         HStack {
             Text("Pokedex App")
-                .foregroundColor(.white)
+                .foregroundColor(Color(Constants.textColor))
                 .font(.system(size: 24))
                 .padding(.leading)
                 .fontWeight(.bold)
@@ -61,7 +65,7 @@ struct PokeHeaderView: View {
                 .frame(width: 60,height: 60)
                 .padding()
         }
-        .background(Color("pokeRed"))
+        .background(Color(backgroundColor))
         .padding()
         .cornerRadius(48)
         .padding(.vertical)
@@ -71,18 +75,19 @@ struct PokeHeaderView: View {
 struct CategoryListView: View {
     let isActive: Bool
     let category : String
+    let backgroundColor : String
     var body: some View {
         
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .fill(isActive ? Color(.blue) : Color.blue.opacity(0.5))
+                .fill(isActive ? Color(backgroundColor) : Color(backgroundColor).opacity(0.5))
                 .frame(width: 100,height: 40)
             HStack {
                 Image(category)
                     .resizable()
                     .frame(width: 24,height: 24)
-                Text(category)
-                    .foregroundColor(.white)
+                Text(category.capitalized)
+                    .foregroundColor(Color(Constants.textColor))
                     .fontWeight(.bold)
             }
             
@@ -99,18 +104,18 @@ struct PokeCartView: View {
                 
                 ForEach(viewModel.pokemonShowList,id: \.id) { item in
                     ZStack{
-                        Color(.blue)
+                        Color(Constants.secondaryColor)
                         VStack {
                         
                             KFImage(URL(string: item.imageURL))
                             .resizable()
                             .frame(width: 80,height: 80)
-                        Text(item.name)
+                            Text(item.name.capitalized)
                             .frame(maxWidth: .infinity)
                             .padding(.top)
                             .fontWeight(.bold)
                             .font(.system(size: 24))
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(Constants.textColor))
                         }
                         .padding()
                     }

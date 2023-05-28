@@ -89,42 +89,74 @@ class PokedexViewModel :ObservableObject{
         }
     }
     
-    func setPokeListFilter(pokeType : Constants.PokeType){
-        switch pokeType {
-        case .all:
-            pokemonShowList = pokemonAllList
-        case .poison:
-            pokemonShowList = pokemonPoisonList
-        case .fire:
-            pokemonShowList = pokemonFireList
-        case .water:
-            pokemonShowList = pokemonWaterList
-        case .bug:
-            pokemonShowList = pokemonBugList
-        case .flying:
-            pokemonShowList = pokemonFlyingList
-        case .normal:
-            pokemonShowList = pokemonNormalList
-        case .electric:
-            pokemonShowList = pokemonElectricList
-        case .ground:
-            pokemonShowList = pokemonGroundList
-        case .fairy:
-            pokemonShowList = pokemonFairyList
-        case .grass:
-            pokemonShowList = pokemonGrassList
-        case .fighting:
-            pokemonShowList = pokemonFightiningList
-        case .psychic:
-            pokemonShowList = pokemonPsychicList
-        case .steel:
-            pokemonShowList = pokemonSteelList
-        case .ice:
-            pokemonShowList = pokemonIceList
-        case .rock:
-            pokemonShowList = pokemonRockList
-        case .dragon:
-            pokemonShowList = pokemonDragonList
+    func setPokeListFilter(pokeType : String){
+        if pokeType == Constants.PokeType.all.rawValue {
+            self.pokemonShowList = pokemonAllList
+            Constants.generateColorDesign(pokeColor: .blackColors)
+        }
+        else if pokeType == Constants.PokeType.poison.rawValue {
+            self.pokemonShowList = pokemonPoisonList
+            Constants.generateColorDesign(pokeColor: .greenColors)
+        }
+        else if pokeType == Constants.PokeType.fire.rawValue {
+            self.pokemonShowList = pokemonFireList
+            Constants.generateColorDesign(pokeColor: .redColors)
+        }
+        else if pokeType == Constants.PokeType.water.rawValue {
+            self.pokemonShowList = pokemonWaterList
+            Constants.generateColorDesign(pokeColor: .blueColors)
+        }
+        else if pokeType == Constants.PokeType.bug.rawValue {
+            self.pokemonShowList = pokemonBugList
+            Constants.generateColorDesign(pokeColor: .greenColors)
+        }
+        else if pokeType == Constants.PokeType.flying.rawValue {
+            self.pokemonShowList = pokemonFlyingList
+            Constants.generateColorDesign(pokeColor: .greenColors)
+        }
+        else if pokeType == Constants.PokeType.normal.rawValue {
+            self.pokemonShowList = pokemonNormalList
+            Constants.generateColorDesign(pokeColor: .blackColors)
+        }
+        else if pokeType == Constants.PokeType.electric.rawValue {
+            self.pokemonShowList = pokemonElectricList
+            Constants.generateColorDesign(pokeColor: .yellowColors)
+        }
+        else if pokeType == Constants.PokeType.ground.rawValue {
+            self.pokemonShowList = pokemonGroundList
+            Constants.generateColorDesign(pokeColor: .greenColors)
+        }
+        else if pokeType == Constants.PokeType.fairy.rawValue {
+            self.pokemonShowList = pokemonFairyList
+            Constants.generateColorDesign(pokeColor: .pinkColors)
+        }
+        else if pokeType == Constants.PokeType.grass.rawValue {
+            self.pokemonShowList = pokemonGrassList
+            Constants.generateColorDesign(pokeColor: .greenColors)
+        }
+        else if pokeType == Constants.PokeType.fighting.rawValue {
+            self.pokemonShowList = pokemonFightiningList
+            Constants.generateColorDesign(pokeColor: .redColors)
+        }
+        else if pokeType == Constants.PokeType.psychic.rawValue {
+            self.pokemonShowList = pokemonPsychicList
+            Constants.generateColorDesign(pokeColor: .yellowColors)
+        }
+        else if pokeType == Constants.PokeType.steel.rawValue {
+            self.pokemonShowList = pokemonSteelList
+            Constants.generateColorDesign(pokeColor: .blackColors)
+        }
+        else if pokeType == Constants.PokeType.rock.rawValue {
+            self.pokemonShowList = pokemonRockList
+            Constants.generateColorDesign(pokeColor: .blackColors)
+        }
+        else if pokeType == Constants.PokeType.dragon.rawValue {
+            self.pokemonShowList = pokemonDragonList
+            Constants.generateColorDesign(pokeColor: .redColors)
+        }
+        else if pokeType == Constants.PokeType.ice.rawValue {
+            self.pokemonShowList = pokemonIceList
+            Constants.generateColorDesign(pokeColor: .blueColors)
         }
     }
     
